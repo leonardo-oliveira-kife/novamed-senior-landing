@@ -1,0 +1,57 @@
+/* Design tokens — ver docs/design-tokens.md */
+
+:root {
+  /* Cores */
+  --color-teal: #1ab9aa;
+  --color-teal-dark: #00909a;
+  --color-teal-05: rgba(26, 185, 170, 0.05);
+  --color-teal-25: rgba(26, 185, 170, 0.25);
+  --color-gold: #f19e04;
+  --color-gold-light: #ffe39e;
+  --color-text: #50505a;
+  --color-text-75: rgba(80, 80, 90, 0.75);
+  --color-text-50: rgba(80, 80, 90, 0.5);
+  --color-text-25: rgba(80, 80, 90, 0.25);
+  --color-gray: #797979;
+  --color-gray-75: rgba(121, 121, 121, 0.75);
+  --color-white: #ffffff;
+  --color-field-bg: rgba(0, 0, 0, 0.02);
+  --color-field-placeholder: rgba(0, 0, 0, 0.3);
+
+  /* Tipografia */
+  --font-display: 'Antonio', 'Oswald', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-h1: clamp(2.5rem, 2rem + 2.2vw, 4.5rem);
+  --fs-h2: clamp(2rem, 1.7rem + 1.3vw, 2.75rem);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.375rem);
+  --fs-lead: clamp(1.05rem, 1rem + 0.2vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-tiny: 0.75rem;
+
+  /* Raios */
+  --radius-pill: 100px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+
+  /* Espaçamento */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  --section-padding-x: clamp(20px, 4vw, 64px);
+  --section-padding-y: clamp(48px, 6vw, 64px);
+
+  --content-max-width: 1440px;
+
+  /* Transições */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 180ms var(--ease-standard);
+  --transition-medium: 320ms var(--ease-standard);
+}
