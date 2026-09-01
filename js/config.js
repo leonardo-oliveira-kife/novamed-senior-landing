@@ -14,7 +14,7 @@
  */
 window.NOVAMED_LEAD_FORM_CONFIG = {
   // TODO: preencher com a URL real do webhook do CRM.
-  WEBHOOK_URL: '',
+  WEBHOOK_URL: 'https://hooks.zapier.com/hooks/catch/28005204/4hmg1m8/',
 
   PAYLOAD_FIELDS: {
     name: 'nome',
@@ -23,6 +23,12 @@ window.NOVAMED_LEAD_FORM_CONFIG = {
     phone: 'telefone',
     email: 'email',
     planType: 'tipo_plano',
+    //novos campos de utm's
+    utm_source: 'utm_source',
+    utm_medium: 'utm_medium',
+    utm_campaign: 'utm_campaign',
+    utm_content: 'utm_content',
+    utm_term: 'utm_term',
   },
 
   // Ajuste a mensagem se quiser, ou troque por outra URL de pós-conversão.
