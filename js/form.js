@@ -4,6 +4,16 @@
   var form = document.getElementById('lead-form');
   if (!form) return;
 
+  // Captura UTMs da URL e preenche os hidden inputs correspondentes
+  (function captureUtms() {
+    var params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (utm) {
+      var value = params.get(utm);
+      var input = form.querySelector('[name="' + utm + '"]');
+      if (value && input) input.value = value;
+    });
+  })();
+
   var config = window.NOVAMED_LEAD_FORM_CONFIG || {};
   var submitButton = form.querySelector('[data-form-submit]');
   var feedbackEl = form.querySelector('[data-form-feedback]');
@@ -163,7 +173,7 @@
 
     fetch(config.WEBHOOK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' }, // alterei de application/json para text/plain 
       body: JSON.stringify(payload),
     })
       .then(function (response) {
