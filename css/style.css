@@ -53,7 +53,7 @@ body {
 }
 
 .text-medium {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h1,
@@ -190,7 +190,7 @@ html.js-reveal [data-reveal].is-visible {
 
 .site-header__logo {
   display: inline-flex;
-  width: 150px;
+  width: 220px;
 }
 
 .site-header__logo img {
@@ -1204,7 +1204,7 @@ body.nav-open {
 .site-footer__logo {
   position: relative;
   display: inline-flex;
-  width: 160px;
+  width: 230px;
   aspect-ratio: 224 / 51;
 }
 
