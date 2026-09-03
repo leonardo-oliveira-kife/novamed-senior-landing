@@ -190,7 +190,7 @@ html.js-reveal [data-reveal].is-visible {
 
 .site-header__logo {
   display: inline-flex;
-  width: 220px;
+  width: 250px;
 }
 
 .site-header__logo img {
@@ -1204,7 +1204,7 @@ body.nav-open {
 .site-footer__logo {
   position: relative;
   display: inline-flex;
-  width: 230px;
+  width: 260px;
   aspect-ratio: 224 / 51;
 }
 
