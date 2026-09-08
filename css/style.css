@@ -630,7 +630,7 @@ body.nav-open {
    DIFERENCIAIS
    ========================================================= */
 
-.differentials {
+.differentials__inner {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -853,6 +853,9 @@ body.nav-open {
 
 .story {
   background: linear-gradient(to bottom, rgba(241, 158, 4, 0), rgba(241, 158, 4, 0.06));
+}
+
+.story__inner {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -1385,7 +1388,7 @@ body.nav-open {
   .hero__inner {
     flex-direction: row;
     align-items: center;
-    min-height: 68vh;
+    min-height: min(68vh, 640px);
   }
 
   .hero__content {
@@ -1429,7 +1432,7 @@ body.nav-open {
     max-width: 480px;
   }
 
-  .differentials {
+  .differentials__inner {
     flex-direction: row;
     align-items: center;
   }
@@ -1462,7 +1465,7 @@ body.nav-open {
     flex: 1;
   }
 
-  .story {
+  .story__inner {
     flex-direction: row;
     align-items: center;
   }
