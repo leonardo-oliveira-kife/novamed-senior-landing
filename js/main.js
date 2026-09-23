@@ -324,4 +324,25 @@
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
+
+  /* ---------- Depoimentos em vídeo (YouTube, carregado só ao clicar) ---------- */
+  document.querySelectorAll('[data-youtube-id]').forEach(function (media) {
+    var playButton = media.querySelector('.play-button');
+    if (!playButton) return;
+
+    playButton.addEventListener('click', function () {
+      var videoId = media.dataset.youtubeId;
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+      iframe.title = 'Depoimento em vídeo';
+      iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.style.position = 'absolute';
+      iframe.style.inset = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = '0';
+      media.replaceChildren(iframe);
+    });
+  });
 })();
