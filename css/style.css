@@ -299,7 +299,8 @@ body.nav-open .site-header__nav-toggle span:nth-child(3) {
   background: var(--color-teal-dark);
 }
 
-body.nav-open {
+body.nav-open,
+body.video-modal-open {
   overflow: hidden;
 }
 
@@ -845,6 +846,74 @@ body.nav-open {
 
 .play-button:hover img {
   transform: scale(1.08);
+}
+
+/* =========================================================
+   MODAL DE VÍDEO (depoimentos)
+   ========================================================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.video-modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-size: 24px;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+.video-modal__close:hover {
+  transform: scale(1.08);
+}
+
+.video-modal__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #000;
+}
+
+.video-modal__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* =========================================================

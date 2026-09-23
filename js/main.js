@@ -325,24 +325,43 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  /* ---------- Depoimentos em vídeo (YouTube, carregado só ao clicar) ---------- */
-  document.querySelectorAll('[data-youtube-id]').forEach(function (media) {
-    var playButton = media.querySelector('.play-button');
-    if (!playButton) return;
+  /* ---------- Depoimentos em vídeo (popup com YouTube, carregado só ao clicar) ---------- */
+  (function () {
+    var videoModal = document.querySelector('[data-video-modal]');
+    var videoFrame = videoModal && videoModal.querySelector('[data-video-modal-frame]');
+    if (!videoModal || !videoFrame) return;
 
-    playButton.addEventListener('click', function () {
-      var videoId = media.dataset.youtubeId;
+    function openVideoModal(videoId) {
       var iframe = document.createElement('iframe');
       iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
       iframe.title = 'Depoimento em vídeo';
       iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
       iframe.setAttribute('allowfullscreen', '');
-      iframe.style.position = 'absolute';
-      iframe.style.inset = '0';
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.border = '0';
-      media.replaceChildren(iframe);
+      videoFrame.replaceChildren(iframe);
+      videoModal.hidden = false;
+      document.body.classList.add('video-modal-open');
+    }
+
+    function closeVideoModal() {
+      videoModal.hidden = true;
+      videoFrame.replaceChildren();
+      document.body.classList.remove('video-modal-open');
+    }
+
+    document.querySelectorAll('[data-youtube-id]').forEach(function (media) {
+      var playButton = media.querySelector('.play-button');
+      if (!playButton) return;
+      playButton.addEventListener('click', function () {
+        openVideoModal(media.dataset.youtubeId);
+      });
     });
-  });
+
+    videoModal.querySelectorAll('[data-video-modal-close]').forEach(function (closeEl) {
+      closeEl.addEventListener('click', closeVideoModal);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !videoModal.hidden) closeVideoModal();
+    });
+  })();
 })();
